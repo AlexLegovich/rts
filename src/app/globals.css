@@ -7,9 +7,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
+  --font-sans: var(--font-raleway);
   --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
+  --font-heading: var(--font-raleway);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -48,25 +48,62 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+/* Палитра ZARYA (из дизайна) */
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --zarya-white: #ffffff;
+  --zarya-soft-50: #fefeff;
+  --zarya-soft-100: #fcfbff;
+  --zarya-soft-200: #faf9ff;
+  --zarya-soft-300: #f8f6ff;
+  --zarya-soft-400: #f7f4ff;
+  --zarya-soft-500: #f5f1ff;
+  --zarya-dark-50: #e9ebf8;
+  --zarya-dark-500: #4d4f68;
+  --zarya-dark-600: #46485f;
+  --zarya-dark-700: #37384a;
+  --zarya-dark-800: #2a2b39;
+  --zarya-dark-900: #20212c;
+  --zarya-input: #d8d8d8;
+}
+
+/* Классы Tailwind: bg-zarya-soft-100, text-zarya-dark-700, border-zarya-input ... */
+@theme inline {
+  --color-zarya-white: var(--zarya-white);
+  --color-zarya-soft-50: var(--zarya-soft-50);
+  --color-zarya-soft-100: var(--zarya-soft-100);
+  --color-zarya-soft-200: var(--zarya-soft-200);
+  --color-zarya-soft-300: var(--zarya-soft-300);
+  --color-zarya-soft-400: var(--zarya-soft-400);
+  --color-zarya-soft-500: var(--zarya-soft-500);
+  --color-zarya-dark-50: var(--zarya-dark-50);
+  --color-zarya-dark-500: var(--zarya-dark-500);
+  --color-zarya-dark-600: var(--zarya-dark-600);
+  --color-zarya-dark-700: var(--zarya-dark-700);
+  --color-zarya-dark-800: var(--zarya-dark-800);
+  --color-zarya-dark-900: var(--zarya-dark-900);
+  --color-zarya-input: var(--zarya-input);
+}
+
+/* Токены shadcn/ui, привязанные к палитре ZARYA */
+:root {
+  --background: var(--zarya-soft-100);
+  --foreground: var(--zarya-dark-800);
+  --card: var(--zarya-white);
+  --card-foreground: var(--zarya-dark-800);
+  --popover: var(--zarya-white);
+  --popover-foreground: var(--zarya-dark-800);
+  --primary: var(--zarya-dark-700);
+  --primary-foreground: var(--zarya-white);
+  --secondary: var(--zarya-soft-500);
+  --secondary-foreground: var(--zarya-dark-800);
+  --muted: var(--zarya-soft-400);
+  --muted-foreground: var(--zarya-dark-500);
+  --accent: var(--zarya-dark-50);
+  --accent-foreground: var(--zarya-dark-800);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --border: var(--zarya-input);
+  --input: var(--zarya-input);
+  --ring: var(--zarya-dark-500);
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
