@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { questions } from "@/days/questions";
+import { content } from "@/days/content";
 
 const TELEGRAM_LIMIT = 4096; // максимальная длина одного сообщения в Telegram
 
@@ -37,7 +37,7 @@ export async function POST(req) {
   }
 
   const day = Number(payload.day);
-  const dayQuestions = questions[day];
+  const dayQuestions = content[day]?.questions;
   if (!dayQuestions) {
     return NextResponse.json({ ok: false, error: "unknown_day" }, { status: 400 });
   }
@@ -59,7 +59,7 @@ export async function POST(req) {
   const date = new Date().toLocaleString("ru-RU", { timeZone: "Europe/Moscow" });
 
   const blocks = [
-    `<b>Потерянная душа: возвращение к себе — День ${day}</b>\n${escapeHtml(nick)} · ${date}`,
+    `<b>Потерянная душа: возвращение к себе — ${escapeHtml(content[day].title)}</b>\n${escapeHtml(nick)} · ${date}`,
     ...dayQuestions.map(
       (q, i) => `<b>${escapeHtml(q)}</b>\n${escapeHtml(String(answers[i]).trim())}`
     ),

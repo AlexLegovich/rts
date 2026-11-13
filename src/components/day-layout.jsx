@@ -38,7 +38,7 @@ export function DayLayout({
           )}
 
           <p className="mt-8 text-xs font-medium uppercase tracking-wide lg:mt-16">{eyebrow}</p>
-          <h1 className="mt-2 text-3xl font-bold sm:text-5xl">{title}</h1>
+          <h1 className="mt-2 text-3xl font-bold sm:text-4xl">{title}</h1>
           <div className="mt-8">{children}</div>
         </div>
       </div>

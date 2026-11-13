@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { days } from "@/days";
+import { content } from "@/days/content";
 
 // "day-1" -> 1; несуществующий день -> null (404)
 function parseDay(slug) {
@@ -19,7 +20,7 @@ export const dynamicParams = false;
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const n = parseDay(slug);
-  return { title: n ? `День ${n} · ZARYA` : "ZARYA" };
+  return { title: n ? `${content[n]?.title ?? `День ${n}`} · ZARYA` : "ZARYA" };
 }
 
 export default async function DayPage({ params }) {
