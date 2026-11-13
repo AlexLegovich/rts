@@ -53,10 +53,14 @@ export function DayForm({
   const [submission, setSubmission] = useState(null);
   const rootRef = useRef(null);
 
+  // ВРЕМЕННО ОТКЛЮЧЕНО до старта проекта: не читаем прошлую отправку, форма всегда открыта.
+  // Чтобы включить блокировку на 30 дней — раскомментируй 3 строки ниже, удали setStatus("idle")
+  // и раскомментируй saveSubmission(...) в handleSubmit.
   useEffect(() => {
-    const saved = loadSubmission(day);
-    setSubmission(saved);
-    setStatus(saved ? "done" : "idle");
+    // const saved = loadSubmission(day);
+    // setSubmission(saved);
+    // setStatus(saved ? "done" : "idle");
+    setStatus("idle");
   }, [day]);
 
   async function handleSubmit(event) {
@@ -75,7 +79,7 @@ export function DayForm({
       if (!res.ok) throw new Error();
 
       const saved = { submittedAt: Date.now(), questions, answers, telegram };
-      saveSubmission(day, saved);
+      // saveSubmission(day, saved); // ВРЕМЕННО ОТКЛЮЧЕНО до старта проекта (см. выше)
       setSubmission(saved);
       setJustSent(true);
       setStatus("done");
